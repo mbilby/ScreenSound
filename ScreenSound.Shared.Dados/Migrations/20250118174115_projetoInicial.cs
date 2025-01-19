@@ -11,20 +11,20 @@ namespace ScreenSound.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {           
             migrationBuilder.Sql("UPDATE Musicas SET ArtistasId = 1 WHERE MusicaId = 1");
-            //migrationBuilder.CreateTable(
-            //    name: "Artistas",
-            //    columns: table => new
-            //    {
-            //        Id = table.Column<int>(type: "int", nullable: false)
-            //            .Annotation("SqlServer:Identity", "1, 1"),
-            //        Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-            //        FotoPerfil = table.Column<string>(type: "nvarchar(max)", nullable: false),
-            //        Bio = table.Column<string>(type: "nvarchar(max)", nullable: false)
-            //    },
-            //    constraints: table =>
-            //    {
-            //        table.PrimaryKey("PK_Artistas", x => x.Id);
-            //    });
+            migrationBuilder.CreateTable(
+                name: "Artistas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FotoPerfil = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artistas", x => x.Id);
+                });
 
             //migrationBuilder.CreateTable(
             //    name: "Musicas",

@@ -8,12 +8,12 @@ using System.Runtime.CompilerServices;
 ScreenSoundContext context = new ScreenSoundContext();
 DAL<Artista> artistaDAL = new DAL<Artista>(context);
 
-Artista ira = new Artista("Ira!", "Banda Ira!");
-Artista beatles = new("The Beatles", "Banda The Beatles");
+//Artista ira = new Artista("Ira!", "Banda Ira!", "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png");
+//Artista beatles = new("The Beatles", "Banda The Beatles", "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png");
 
-Dictionary<string, Artista> artistasRegistrados = new();
-artistasRegistrados.Add(ira.Nome, ira);
-artistasRegistrados.Add(beatles.Nome, beatles);
+//Dictionary<string, Artista> artistasRegistrados = new();
+//artistasRegistrados.Add(ira.Nome, ira);
+//artistasRegistrados.Add(beatles.Nome, beatles);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarArtista());
