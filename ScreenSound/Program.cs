@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using ScreenSound.Banco;
 using ScreenSound.Menus;
 using ScreenSound.Modelos;

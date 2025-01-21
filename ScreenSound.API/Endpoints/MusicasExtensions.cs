@@ -108,7 +108,6 @@ namespace ScreenSound.API.Endpoints
         private static MusicaResponse EntityToResponse(Musica musica)
         {
             DAL<Artista> dalArtista = new DAL<Artista>(new ScreenSoundContext());
-          
             Artista artista = dalArtista.RecuperaPor(a => a.Id.Equals(musica.ArtistaId));
 
             if (artista is not null)

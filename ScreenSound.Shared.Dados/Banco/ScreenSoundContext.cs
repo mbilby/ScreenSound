@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using ScreenSound.Modelos;
 using ScreenSound.Shared.Modelos.Modelos;
 using System;
@@ -21,8 +22,17 @@ namespace ScreenSound.Banco
 
         private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ScreenSound;Integrated Security=True;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
+        public ScreenSoundContext(DbContextOptions options) : base(options) { }  
+        
+        public ScreenSoundContext() { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (optionsBuilder.IsConfigured)
+            {
+                return;
+            } 
+
             optionsBuilder.
                 UseSqlServer(connectionString).
                 UseLazyLoadingProxies(false);
