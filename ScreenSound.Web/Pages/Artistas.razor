@@ -1,0 +1,35 @@
+﻿@page "/Artistas"
+@inject ArtistaAPI artistaAPI
+
+@if(artistas == null) {
+
+    <p>Carregando....</p>
+
+} else {
+    <MudGrid>
+        @foreach (ArtistaResponse artista in artistas)
+        {
+            <MudItem xs="3">
+                <CardArtista Artista="artista" />
+            </MudItem>
+            
+        }
+    </MudGrid>
+}
+
+@code {
+
+    private ICollection<ArtistaResponse>? artistas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            artistas = await artistaAPI.GetArtistasAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+        }             
+    }
+}

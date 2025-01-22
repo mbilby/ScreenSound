@@ -6,6 +6,9 @@ using ScreenSound.Shared.Modelos.Modelos;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+// Para permissão de acesso - Adicionar Cors  e passar parametros de permissão
+builder.Services.AddCors();
+
 builder.Services.AddDbContext<ScreenSoundContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration["ConnectionStrings:ScreenSoundDB"])
@@ -32,5 +35,8 @@ app.AddEndPointMusicas();
 //SWAGGER
 app.UseSwagger();
 app.UseSwaggerUI();
+
+//Parametros de permissão cors
+app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true).AllowCredentials());
 
 app.Run();
